@@ -12,6 +12,7 @@ class Evaluation
     int userColor;
     TranspositionTable table;
 
+
     //weight table; credit, github user: hylbyj 
     //link: https://github.com/hylbyj/Alpha-Beta-Pruning-for-Othello-Game/blob/master/readme_alpha_beta.txt
     const int WEIGHTS[8][8] = {4, -3, 2, 2, 2, 2, -3, 4,
@@ -23,13 +24,16 @@ class Evaluation
                -3, -4, -1, -1, -1, -1, -4, -3,
                4, -3, 2, 2, 2, 2, -3, 4};
 
-    //method to evaluate board layouts
-    int evaluateBoardLayout(Game& copy)
-    {
+     //Do I need this method? This class seems to have turned into wrapper class for MiniMax.cpp
+//     //method to evaluate board layouts
+//     int evaluateBoardLayout(Game& copy)
+//     {
         
-    }
+//     }
 
     public:
+    Evaluation() : userColor('.'){}
+
     Evaluation(int color)
     {
         userColor = color;
@@ -41,10 +45,9 @@ class Evaluation
         return false;
    }
 
-    //some issue with: identifier "Minimax" is undefined
    int getBestMove(Game& copy)
    {
-        return Minimax.solve(copy,userColor,searchDepth, table);
+        return MiniMax::solve(copy,userColor,searchDepth, table);
    }
    
 };
