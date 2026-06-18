@@ -160,18 +160,18 @@ inline void Game::Gameloop(){
         if (choice==1)
         {
              //TODO: implementing AI feature
-            AI bot= AI('B');
+            AI bot= AI('W');
             while(true)
             {
                 print();
                
                 //Code For AI implementation in game
-                if(legalMoves('B') != "")
+                if(legalMoves('W') != "")
                 {
                     cout << "\nAI is preparing to make move\n";
                     int aiMove = bot.getBestMove(*this);
                     cout <<"AI moves to : (" << (aiMove/10 + 1) << "," <<(aiMove % 10 + 1) << ")\n";
-                    place('B', aiMove);
+                    place('W', aiMove);
                     print();
                 } else {
                     cout <<"\n No legal moves left for AI! Turn will be skipped\n";
@@ -186,19 +186,19 @@ inline void Game::Gameloop(){
 
                 //end
 
-                if (legalMoves('W')!=""){ //see player vs player for commets on this code (its the same)
+                if (legalMoves('B')!=""){ //see player vs player for commets on this code (its the same)
                 cout<<"player 2 you are W. Here are your available moves\n";
-                cout<<legalMoves('W')<<"\n";
+                cout<<legalMoves('B')<<"\n";
                 cout<<"please enter your move as a two digit number ex 23 = row 2 column 3\n";
                 while(true){
                     cin>>choice;
-                    if (legalMove('W',choice-11)){
+                    if (legalMove('B',choice-11)){
                         break;
                     } else {
                         cout<<"Plese input a valid move\n";
                     }
                 }
-                place('W',choice-11);
+                place('B',choice-11);
                 }
                 if (legalMoves('W')==""&&legalMoves('B')==""){
                     break;
