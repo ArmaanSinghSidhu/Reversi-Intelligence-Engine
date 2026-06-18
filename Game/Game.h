@@ -195,7 +195,7 @@ inline void Game::Gameloop(){
                     if (legalMove('B',choice-11)){
                         break;
                     } else {
-                        cout<<"Plese input a valid move\n";
+                        cout<<"Please input a valid move\n";
                     }
                 }
                 place('B',choice-11);
@@ -237,7 +237,7 @@ inline void Game::Gameloop(){
                         if (legalMove('B',choice-11)){
                             break;
                         } else {
-                            cout<<"Plese input a valid move\n";
+                            cout<<"Please input a valid move\n";
                         }
                     }
                 place('B',choice-11); //makes a given choice
