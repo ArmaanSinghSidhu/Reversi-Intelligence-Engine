@@ -187,7 +187,7 @@ inline void Game::Gameloop(){
                 //end
 
                 if (legalMoves('B')!=""){ //see player vs player for commets on this code (its the same)
-                cout<<"player 2 you are W. Here are your available moves\n";
+                cout<<"player you are B. Here are your available moves\n";
                 cout<<legalMoves('B')<<"\n";
                 cout<<"please enter your move as a two digit number ex 23 = row 2 column 3\n";
                 while(true){
