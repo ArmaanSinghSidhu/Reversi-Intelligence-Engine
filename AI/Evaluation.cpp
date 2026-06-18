@@ -1,10 +1,12 @@
+#ifndef EVALUATION_CPP
+#define EVALUATION_CPP
+#include "./TranspositionTable.cpp"
 //Evaluation.cpp 
 //Objective 1: looks at a given board setup and works with Binary Search Tree from MiniMax.cpp to find best move
 //Objective 2: looks at player or AI move and evaluates it
- #include "Disk.h";
- #include "Game.h";
- #include "MiniMax.cpp";
- #include "TranspositionTable.cpp";
+ #include "Disk.h"
+#include "Game.h"
+
 class Evaluation
 {
     private:
@@ -45,10 +47,15 @@ class Evaluation
         return false;
    }
 
-   int getBestMove(Game& copy)
-   {
-        return MiniMax::solve(copy,userColor,searchDepth, table);
-   }
+   int getBestMove(Game& copy);
    
 };
+//Had to use inline function because I accidentally wrote circular code:
+//Documentation where I found this: https://learn.microsoft.com/en-us/cpp/cpp/inline-functions-cpp?view=msvc-170
+#include "MiniMax.cpp"
+     inline int Evaluation::getBestMove(Game& copy)
+     {
+     return MiniMax::solve(copy, userColor, searchDepth, table);
+     }
+#endif
 

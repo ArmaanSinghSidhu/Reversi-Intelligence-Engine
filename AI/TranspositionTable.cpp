@@ -1,11 +1,12 @@
-#ifndef TRANSPOSITION_TABLE
-#define TRANSPOSITION_TABLE
-#include "Disk.h";
+#ifndef TRANSPOSITION_TABLE_CPP
+#define TRANSPOSITION_TABLE_CPP
+#include "Disk.h"
 //TranspositionTable.cpp
 //Objective 1: Use Special Zorbist Hash function to save board posiitons
+//Credit to documentation:  http://chessprogramming.org/Transposition_Table, https://www.chessprogramming.org/Zobrist_Hashing
 enum PruningState {
     //Exact represents the acutal value of the game move
-    //Alpha represents a weak move
+    //Alpha represents a weak move,
     //Beta represents the best move for you, but it assumes your opponent is an idiot; like think of the scholar's mate in chess
     EXACT, ALPHA, BETA
 };
@@ -133,5 +134,4 @@ class TranspositionTable
 
     
 };
-#endif TRANSPOSITION_TABLE
-
+#endif //

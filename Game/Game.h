@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+class AI;
 using namespace std;
 class Game {
     private:
@@ -74,6 +75,13 @@ class Game {
         }
         return returner;
     }
+
+    //This method is needed to for assist MiniMax class with findin the board
+    const auto& get_board() const 
+    {
+        return board;
+    }   
+
     // places disk down and converts other pieces.
     void place(char color,int location){
     int row=location%10;
@@ -134,7 +142,11 @@ class Game {
         }
     }
     //starts the gameplay loop.
-    void Gameloop(){
+    void Gameloop();
+    
+};
+#include "AI.cpp"
+inline void Game::Gameloop(){
         int choice;
         cout<<"Enter 1 to play against AI\nEnter 2 to play local multiplayer\n"; // can play multiplayer or vs AI
         while(true){ //protects from exstranious numbers
@@ -145,12 +157,35 @@ class Game {
                 cout<<"not a valid input please input 1 or 2\n";
             }
         }
-        if (choice==1){ //VS AI not complete because I don't have AI class but what would be added is in perenthases
-            while(true){
+        if (choice==1)
+        {
+             //TODO: implementing AI feature
+            AI bot= AI('B');
+            while(true)
+            {
                 print();
-                //Ai bot=AI()
-                //place('B',Ai.getMove())
-                print();
+               
+                //Code For AI implementation in game
+                if(legalMoves('B') != "")
+                {
+                    cout << "\nAI is preparing to make move\n";
+                    int aiMove = bot.getBestMove(*this);
+                    cout <<"AI moves to : (" << (aiMove/10 + 1) << "," <<(aiMove % 10 + 1) << ")\n";
+                    place('B', aiMove);
+                    print();
+                } else {
+                    cout <<"\n No legal moves left for AI! Turn will be skipped\n";
+                }
+
+
+                if(legalMoves('W') == "" && legalMoves('B') == "")
+                {
+                    break;
+                }
+
+
+                //end
+
                 if (legalMoves('W')!=""){ //see player vs player for commets on this code (its the same)
                 cout<<"player 2 you are W. Here are your available moves\n";
                 cout<<legalMoves('W')<<"\n";
@@ -249,5 +284,4 @@ class Game {
             }
         }
     }
-};
 #endif

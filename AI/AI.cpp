@@ -1,7 +1,9 @@
+#ifndef AI_CPP
+#define AI_CPP
 //This the kinda like the parent class of AI folder
 //AI.cpp implements MiniMax.cpp, Evaluation.cpp, and TranspositionTable.cpp
 //The classes create an AI player to be implemented for the game
-#include "Evaluation.cpp";
+#include "Evaluation.cpp"
 
 class AI
 {
@@ -33,4 +35,5 @@ class AI
     }
 
 };
+#endif
 
