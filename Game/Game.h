@@ -189,7 +189,7 @@ inline void Game::Gameloop(){
                 if (legalMoves('B')!=""){ //see player vs player for commets on this code (its the same)
                 cout<<"player you are B. Here are your available moves\n";
                 cout<<legalMoves('B')<<"\n";
-                cout<<"please enter your move as a two digit number ex 23 = row 2 column 3\n";
+                cout<<"please enter your move as a two digit number ex 23 = column 2 row 3\n";
                 while(true){
                     cin>>choice;
                     if (legalMove('B',choice-11)){
@@ -231,7 +231,7 @@ inline void Game::Gameloop(){
                 if (legalMoves('B')!=""){ //skips turn if there are no legal moves
                     cout<<"player 1 you are B. Here are your available moves\n";
                     cout<<legalMoves('B')<<"\n";
-                    cout<<"please enter your move as a two digit number ex 23 = row 2 column 3\n";
+                    cout<<"please enter your move as a two digit number ex 23 = column 2 row 3\n";
                     while(true){ //checks for valid input
                         cin>>choice;
                         if (legalMove('B',choice-11)){
@@ -247,7 +247,7 @@ inline void Game::Gameloop(){
                 if (legalMoves('W')!=""){ //same thing but for second player
                 cout<<"player 2 you are W. Here are your available moves\n";
                 cout<<legalMoves('W')<<"\n";
-                cout<<"please enter your move as a two digit number ex 23 = row 2 column 3\n";
+                cout<<"please enter your move as a two digit number ex 23 = column 2 row 3\n";
                 while(true){
                     cin>>choice;
                     if (legalMove('W',choice-11)){
